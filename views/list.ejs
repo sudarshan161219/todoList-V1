@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList-v1</title>
+    <script src="https://kit.fontawesome.com/89bf2e29f9.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"  href="./css/styles.css">
+</head>
+
+
+<body>
+    <main>
+       <section>
+<nav class="nav" >
+
+  <h1 class="day"><%= listTitle %></h1>
+
+
+</nav>
+
+<article>
+
+<form  action="/" method="post">
+    <div class="form__group field">
+        <input type="text" name="newItem" class="form__field" placeholder="Name" name="name" id='name' autocomplete="off" />
+        <label for="name" class="form__label">New Item</label>
+        <button type="submit" name="list" class="button-86" role="button" 
+         value=<%= listTitle %> >
+            <i class="fa-light fa-plus"></i>
+        </button>
+      </div>
+
+</form>
+
+<div class="ul">
+    <%  newListItems.forEach((item) =>{ %>
+        <form action="/delete"  method="post"> 
+         <div class="list-container">
+            <input value="<%=item._id %>" name="checkbox" class="checkbox" type="checkbox" onchange="this.form.submit()" >
+            <p class="li" ><%= item.name %> </p> 
+        </div>    
+        <input type="hidden" name="listName" value="<%= listTitle %>"> </input>
+
+        </form>
+        <%  }) %>
+    </div>
+    
+</article>
+
+    </section>     
+    </main>
+
+</body>
+</html>
